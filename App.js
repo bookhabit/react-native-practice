@@ -57,7 +57,15 @@ const App = () => {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="TodoList" component={TodoScreen} />
+        <Stack.Screen
+          name="TodoList"
+          component={TodoScreen}
+          options={{
+            headerStyle: {
+              backgroundColor: '#26a69a',
+            },
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
