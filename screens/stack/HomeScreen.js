@@ -32,6 +32,10 @@ const HomeScreen = ({navigation}) => {
         title="TopTab 열기"
         onPress={() => navigation.navigate('TopTab')}
       />
+      <Button
+        title="MaterialBottomTab 열기"
+        onPress={() => navigation.navigate('MaterialBottomTab')}
+      />
     </View>
   );
 };

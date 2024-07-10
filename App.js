@@ -1,6 +1,9 @@
 import React from 'react';
 import HomeScreen from './screens/stack/HomeScreen';
-import {NavigationContainer} from '@react-navigation/native';
+import {
+  getFocusedRouteNameFromRoute,
+  NavigationContainer,
+} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import DetailScreen from './screens/stack/DetailScreen';
 import TodoScreen from './screens/stack/TodoScreen';
@@ -8,8 +11,22 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import HeaderlessScreen from './screens/stack/HeaderlessScreen';
 import BottomTabApp from './screens/bottomTab/BottomTabApp';
 import TopTabNavigator from './screens/tobTab/TopTabNavigator';
+import MaterialBottomNavigator from './screens/materialBottomTab/MaterialBottomNavigator';
 
 const Stack = createNativeStackNavigator();
+
+// material bottom tab : 탭과 헤더 동기화
+function getHeaderTitle(route) {
+  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
+  const nameMap = {
+    Home: '홈',
+    Search: '검색',
+    Notification: '알림',
+    Message: '메시지',
+  };
+
+  return nameMap[routeName];
+}
 
 const App = () => {
   return (
@@ -81,6 +98,13 @@ const App = () => {
           options={{
             headerTitle: '상단탭 네비게이터',
           }}
+        />
+        <Stack.Screen
+          name="MaterialBottomTab"
+          component={MaterialBottomNavigator}
+          options={({route}) => ({
+            title: getHeaderTitle(route),
+          })}
         />
       </Stack.Navigator>
     </NavigationContainer>
