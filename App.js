@@ -7,6 +7,7 @@ import TodoScreen from './screens/stack/TodoScreen';
 import {Text, TouchableOpacity, View} from 'react-native';
 import HeaderlessScreen from './screens/stack/HeaderlessScreen';
 import BottomTabApp from './screens/bottomTab/BottomTabApp';
+import TopTabNavigator from './screens/tobTab/TopTabNavigator';
 
 const Stack = createNativeStackNavigator();
 
@@ -72,6 +73,13 @@ const App = () => {
           component={BottomTabApp}
           options={{
             headerTitle: '바텀탭 네비게이터',
+          }}
+        />
+        <Stack.Screen
+          name="TopTab"
+          component={TopTabNavigator}
+          options={{
+            headerTitle: '상단탭 네비게이터',
           }}
         />
       </Stack.Navigator>

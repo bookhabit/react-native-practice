@@ -1,14 +1,23 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Text} from 'react-native';
+import {Button, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import HomeScreen from '../stack/HomeScreen';
 
 const Tab = createBottomTabNavigator();
 
-function HomeScreen() {
-  return <Text>Home</Text>;
+function BottomHomeScreen({navigation}) {
+  return (
+    <View>
+      <Button
+        title="첫 홈으로 이동 (popToTop)"
+        onPress={() => navigation.popToTop()}
+        // onPress={() => navigation.push('Detail')}
+      />
+    </View>
+  );
 }
 
 function SearchScreen() {
@@ -27,17 +36,16 @@ const BottomTabApp = () => {
   const insets = useSafeAreaInsets();
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="BottomHome"
       screenOptions={{
         tabBarActiveTintColor: '#fb8c00',
-
-        // tabBarStyle: {
-        //   height: 60 + insets.bottom,
-        // },
+        tabBarStyle: {
+          height: 60 + insets.bottom,
+        },
       }}>
       <Tab.Screen
-        name="Home"
-        component={HomeScreen}
+        name="BottomHome"
+        component={BottomHomeScreen}
         options={{
           title: '홈',
           tabBarIcon: ({color, size}) => (

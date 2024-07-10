@@ -7,7 +7,6 @@ const HomeScreen = ({navigation}) => {
       <Button
         title="Detail 열기"
         onPress={() => navigation.navigate('Detail', {id: 1})}
-        // onPress={() => navigation.push('Detail')}
       />
       <Button
         title="Detail 열기"
@@ -28,6 +27,10 @@ const HomeScreen = ({navigation}) => {
       <Button
         title="BottomTab 열기"
         onPress={() => navigation.navigate('BottomTab')}
+      />
+      <Button
+        title="TopTab 열기"
+        onPress={() => navigation.navigate('TopTab')}
       />
     </View>
   );
