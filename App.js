@@ -6,6 +6,7 @@ import DetailScreen from './screens/stack/DetailScreen';
 import TodoScreen from './screens/stack/TodoScreen';
 import {Text, TouchableOpacity, View} from 'react-native';
 import HeaderlessScreen from './screens/stack/HeaderlessScreen';
+import BottomTabApp from './screens/bottomTab/BottomTabApp';
 
 const Stack = createNativeStackNavigator();
 
@@ -64,6 +65,13 @@ const App = () => {
             headerStyle: {
               backgroundColor: '#26a69a',
             },
+          }}
+        />
+        <Stack.Screen
+          name="BottomTab"
+          component={BottomTabApp}
+          options={{
+            headerTitle: '바텀탭 네비게이터',
           }}
         />
       </Stack.Navigator>

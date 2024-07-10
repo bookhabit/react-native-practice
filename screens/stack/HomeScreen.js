@@ -25,6 +25,10 @@ const HomeScreen = ({navigation}) => {
         title="TodoList 열기"
         onPress={() => navigation.navigate('TodoList')}
       />
+      <Button
+        title="BottomTab 열기"
+        onPress={() => navigation.navigate('BottomTab')}
+      />
     </View>
   );
 };
